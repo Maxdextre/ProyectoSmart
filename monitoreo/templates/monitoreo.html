@@ -1,0 +1,42 @@
+<head>
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+</head>
+<body>
+    <h1>MONITOREO DE DISPOSITIVOS</h1>
+   
+    <table>
+        <tr>
+            <th>CÓDIGO</th>
+            <th>TIPO</th>
+            <th>UBICACIÓN</th>
+            <th>NODO</th>
+            <th>DESCRIPCIÓN</th>
+        </tr>
+        {% for vistaMoni in vistaMon %}
+        <tr>
+            <td>{{vistaMoni.codigo}}</td>
+            <td>{{vistaMoni.red.ip}}</td>
+            <td>{{vistaMoni.ubicaciones.latitud}} , {{vistaMoni.ubicaciones.longitud</td>
+            <td>{{vistaMoni.nodo}}</td>
+            <td>{{vistaMoni.descripcion}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
