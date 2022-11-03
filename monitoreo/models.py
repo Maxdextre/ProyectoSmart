@@ -1,6 +1,5 @@
 from email.policy import default
 from pyexpat import model
-from unittest.util import _MAX_LENGTH
 from django.db import models
 
 # Create your models here.
@@ -29,6 +28,7 @@ class tblbateria(models.Model):
     estado = models.BooleanField(default=True)
 
 class tblsensor(models.Model):
+    id = models.BigAutoField(primary_key=True)
     codigo= models.CharField(max_length=6)
     descripcion= models.CharField(max_length=200)
     #tipo= models.CharField(max_length=200) #tipo 2
