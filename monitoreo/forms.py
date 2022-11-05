@@ -1,25 +1,28 @@
 from django import forms
-from .models import tblsensor, tblred,tblnodo,tblbateria,tblubicacion,tbltipo_sensor
+from .models import tblsensore
 
 class SensoresForm(forms.ModelForm):
 
-
+    #P     nombres = forms.ModelChoiceField(queryset=tbltipo_sensor.objects.values('nombre'), initial=0, to_field_name="nombre")
     class Meta:
-        model = tblsensor
-        # fields = ["codigo", "descripcion"]
-        # model2 = tblsensor.red
-        # fields2 = ["ip"]
-        # model4 = tblsensor.ubicaciones
-        # fields5 = ["latitud"]
-        # model6 = tblsensor.red.nodo
-        # fields3 = ["sector"]
-        # model3 = tblsensor.bateria
-        # fields4 = ["nivel"]
-        # model5 = tblsensor.tip_sensor
-        # fields6 = ["nombre"]
+        model = tblsensore
 
-        fields = ["codigo", "descripcion"]
+        fields = '__all__'
 
 
         #fields = ["codigo", "nombre", "latitud", "longitud", "sector", "descripcion", "nivel", "ip"]
         #fields = '__all__'
+
+class agregarSensorForm(forms.ModelForm):
+
+    #name_nodo = forms.CharField(tblnodo)
+    class Meta:
+        model = tblsensore
+        fields = ["codigo", "tipo_sensor", "latitud_ubicacion", "longitud_ubicacion", "descripcion_nodo", "descripcion", "nivel_bateria", "ip_red"]
+
+class modificarSensorForm(forms.ModelForm):
+    #name_nodo = forms.CharField(tblnodo)
+    class Meta:
+        model = tblsensore
+        fields = ["codigo", "tipo_sensor", "longitud_ubicacion", "longitud_ubicacion", "descripcion_nodo", "descripcion", "nivel_bateria", "ip_red"]
+

@@ -2,9 +2,10 @@
 {% block prueba %}
     {% include "layouts/sidebar.html" %}
 {% endblock %}
+
 {% block monitoreo %}
 {% load crispy_forms_tags %}
-
+    {% load crispy_forms_tags %}
     <div class="row">
         <div class=" offset-md-11">
 
@@ -15,7 +16,7 @@
                         {% csrf_token %}
                         {{ form | crispy }}
                         <div class="d-flex justify-content-end">
-                            <input type="reset" value="Cancelar" class="btn btn-secondary">
+                            <input type="reset" value="Cancelar" class="btn btn-secondary" >
                             &nbsp;
                             <input type="submit" value="Editar" class="btn btn-primary">
                         </div>

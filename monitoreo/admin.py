@@ -1,8 +1,8 @@
 from django.contrib import admin
 
 #Importas el archivo models
-from .models import  tblsensor
+from .models import  tblsensore
 
 # Register your models here.
 
-admin.site.register(tblsensor)
+admin.site.register(tblsensore)

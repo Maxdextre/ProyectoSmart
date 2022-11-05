@@ -1,5 +1,3 @@
-
-
 {% extends 'layouts/base.html' %}
 {% block prueba %}
     {% include "layouts/sidebar.html" %}
@@ -208,7 +206,8 @@
                     <h1 class="h3 mb-2 text-gray-800">MONITOREO DE SENSORES</h1>
                     <p class="mb-4">Este monitoreo es para el proyecto SMART 2022, realizado por la  <a target="_blank"
                             href="https://ucontinental.edu.pe/">Universidad Continental</a>.</p>
-
+                    <a class="btn btn-primary float-right">Añadir Dispositivo</a>
+                    <hr> <br><br>
                     <!-- Topbar Search -->
                     <form>
                         <div class="input-group">
@@ -228,39 +227,41 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <tr>
-                                        <th>CÓDIGO</th>
-                                        <th>TIPO</th>
-                                        <th>UBICACIÓN</th>
-                                        <th>NODO</th>
-                                        <th>DESCRIPCIÓN</th>
-                                        <th>BATERIA</th>
-                                        <th>DIRECCION IP</th>
-                                        <th>ESTADO</th>
-                                        <th>---</th>
-
-                                    </tr>
-                                    {% for vistaMoni in vistaMon %}
-                                    <tr>
-                                        <td>{{vistaMoni.codigo}}</td>
-                                        <td>{{vistaMoni.tip_sensor.nombre}}</td>
-                                        <td>{{vistaMoni.ubicaciones.latitud}} , {{vistaMoni.ubicaciones.longitud}}</td>
-                                        <td>{{vistaMoni.red.nodo.sector}}</td>
-                                        <td>{{vistaMoni.descripcion}}</td>
-                                        <td>{{vistaMoni.bateria.nivel}} %</td>
-                                        <td>{{vistaMoni.red.ip}}</td>
-                                        <td>{% if vistaMoni.bateria.estado == True %}
-                                            <p>🟢</p>{% else %} <p>🔴</p>{% endif %}
-                                        </td>
-                                        <td>
-                                            <a href="{% url 'editar_sensor' vistaMoni.id %}" class="btn btn-info btn-primary">
-                                            ✏️
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </table>
+                                {% block tblListar %}
+                                {% endblock %}
+{#                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">#}
+{#                                    <tr>#}
+{#                                        <th>CÓDIGO</th>#}
+{#                                        <th>TIPO</th>#}
+{#                                        <th>UBICACIÓN</th>#}
+{#                                        <th>NODO</th>#}
+{#                                        <th>DESCRIPCIÓN</th>#}
+{#                                        <th>BATERIA</th>#}
+{#                                        <th>DIRECCION IP</th>#}
+{#                                        <th>ESTADO</th>#}
+{#                                        <th>---</th>#}
+{##}
+{#                                    </tr>#}
+{#                                    {% for vistaMoni in sensores %}#}
+{#                                    <tr>#}
+{#                                        <td>{{vistaMoni.codigo}}</td>#}
+{#                                        <td>{{vistaMoni.tip_sensor.nombre}}</td>#}
+{#                                        <td>{{vistaMoni.ubicaciones.latitud}} , {{vistaMoni.ubicaciones.longitud}}</td>#}
+{#                                        <td>{{vistaMoni.red.nodo.sector}}</td>#}
+{#                                        <td>{{vistaMoni.descripcion}}</td>#}
+{#                                        <td>{{vistaMoni.bateria.nivel}} %</td>#}
+{#                                        <td>{{vistaMoni.red.ip}}</td>#}
+{#                                        <td>{% if vistaMoni.bateria.estado == True %}#}
+{#                                            <p>🟢</p>{% else %} <p>🔴</p>{% endif %}#}
+{#                                        </td>#}
+{#                                        <td>#}
+{#                                            <a href="{% url 'editar_sensor' vistaMoni.id %}" class="btn btn-info btn-primary">#}
+{#                                            ✏️#}
+{#                                            </a>#}
+{#                                        </td>#}
+{#                                    </tr>#}
+{#                                    {% endfor %}#}
+{#                                </table>#}
                             </div>
                         </div>
                     </div>
